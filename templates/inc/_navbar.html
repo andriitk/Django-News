@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="{% url 'home' %}">NewsONE</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Главная</a></li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item"><a class="nav-link" href="{% url 'add_news' %}">Добавить новость</a></li>
+            <li class="nav-item"><a class="nav-link" href="{% url 'feedback' %}">Обратная связь</a></li>
+        </ul>
+    </div>
+    <span class="text mr-3">Hi👋 <a href="#"><b>{{ user.username }}</b></a></span>
+    <span class="navbar-text">
+            <a href="{% url 'logout' %}"> Logout</a>
+        </span>
+    {% else %}
+    </ul>
+    </div>
+    <span class="navbar-text">
+            <a href="{% url 'register' %}">SignUp</a> |
+            <a href="{% url 'login' %}">Login</a>
+        </span>
+    {% endif %}
+</nav>

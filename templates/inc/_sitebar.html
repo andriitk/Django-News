@@ -1,0 +1,14 @@
+{% load news_tags %}
+<!--Simple user tag-->
+{% comment %}
+<div class="list-group">
+    {% get_list_categories as categories %}
+    {% for item in categories %}
+    <a href="{% url 'category' item.pk %}" class="list-group-item list-group-item-action">{{ item.title }}</a>
+    {% endfor %}
+</div>
+
+<br/>
+{% endcomment %}
+<!--Inclusion user tag можно передать аргументы-->
+{% show_categories %}
